@@ -1,4 +1,5 @@
 package com.dice1;
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -37,16 +38,17 @@ public class DiceJobSearch1 {
 				dr.findElement(By.id("search-field-location")).sendKeys(location+Keys.ENTER);
 				String count=dr.findElement(By.id("posiCountMobileId")).getText();
 				System.out.println(count);
-				
-				int cr=Integer.parseInt(count);
+				int crt=Integer.parseInt(count);
+			
 							
-						if (cr>0) {
-					System.out.println("Step pass. key :" +key +" search returned "+ cr +" result in " +location);
+						if (crt>0) {
+					System.out.println("Step pass. key :" +key +" search returned "+ crt +" result in " +location);
 				}else {
 					System.out.println("\"Step fail:  key :\" +key +\" search returned \"+ countR +\"result in \" +location..");
 				}
 
-				
+				dr.close();
+				System.out.println("Test completed : " +LocalDateTime.now());
 					
 				}
 }
